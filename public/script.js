@@ -18,7 +18,7 @@ const submitEvent = (event) => {
   event.preventDefault(); // Prevent form submission
 
   // Get the value of the text input field
-  const textInputValue = document.getElementById('textInput').value;
+  let textInputValue = document.getElementById('textInput').value;
 
   // Get the select element
   const selectElement = document.getElementById('mySelect');
@@ -51,24 +51,25 @@ const submitEvent = (event) => {
       break;
     case 'wikipedia':
       searchEngine = `https://duckduckgo.com/?sites=wikipedia.org&`;
-      firstResult = true;
+      break;
+    case 'wikipedia-quick':
+      searchEngine = `https://duckduckgo.com/?`;
+      textInputValue = "!w " + textInputValue;
       break;
     case 'cppreference':
       searchEngine = `https://duckduckgo.com/?sites=cppreference.com&`;
-      firstResult = true;
+      break;
+    case 'cppreference-quick':
+      searchEngine = `https://duckduckgo.com/?`;
+      textInputValue = "!cpp " + textInputValue;
       break;
     case 'duck':
     default:
       break;
   }
 
-  let firstResultString = "";
-  if (firstResult) {
-    firstResultString = "\\";
-  }
-
   // Construct the DuckDuckGo search URL
-  const searchUrl = `${searchEngine}q=${firstResultString}${encodeURIComponent(textInputValue)}`;
+  const searchUrl = `${searchEngine}q=${encodeURIComponent(textInputValue)}`;
 
   // Redirect the user to the DuckDuckGo search results page
   window.location.href = searchUrl;
