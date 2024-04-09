@@ -1,0 +1,104 @@
+/* the only case that is better using overflow hidden together with those on
+html, body selectors is when ul or li components are the topmost elements in
+the page body and they need to have padding and margin redefined, which will
+lead to the scrollbar being showed even with this fix */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #111;
+  background-image: linear-gradient(45deg, rgba(0,0,0,0.25) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.25)),
+                    linear-gradient(-45deg, rgba(0,0,0,0.25) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.25));
+  background-size: 25px 25px;
+  text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000, 0 0 0.5em #000, 0 0 0.5em #000;
+  color: white;
+}
+
+a {
+  color: #af3;
+  text-decoration: none;
+  transition: all 0.7s ease-in-out;
+  text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000, 0 0 0.5em #000, 0 0 0.5em #000;
+}
+
+a:hover {
+  transition: all 0.1s ease-in-out;
+  text-shadow: 1px 1px 1px #3c6600, -1px 1px 1px #3c6600, 1px -1px 1px #3c6600, -1px -1px 1px #3c6600, 0 0 0.5em #3c6600, 0 0 0.5em #3c6600;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+h3 {
+  margin: 5px 0px 5px 0px;
+}
+
+/*
+h2 {
+  margin: 10px 0px 10px 0px;
+}*/
+
+.column {
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.summary {
+  width: 100%;
+  font-size: 0;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  background-image: url("./header.png");
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.body-container {
+  max-width: 1200px;
+  height: 100%;
+  margin: auto;
+}
+
+.body-unique {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.about {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0px 5px 5px 0px;
+}

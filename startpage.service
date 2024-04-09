@@ -1,0 +1,11 @@
+[Unit]
+Description=My Project Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/.cache/startpage
+ExecStart=%h/.local/share/asdf/installs/nodejs/18.17.1/bin/npm start
+
+[Install]
+WantedBy=default.target
