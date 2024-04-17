@@ -1,22 +1,12 @@
-.PHONY: install run clean service
+.DEFAULT_GOAL := build
+.PHONY: build run clean
 
-install:
-	asdf install
-	npm install
+build: clean
+	mkdir build
+	zip -r -9 -Z deflate build/startpage.xpi public/
 
 run:
-	npm start
-
-service: clean install
-	cp -r . ~/.cache/startpage
-	cp startpage.service ~/.config/systemd/user/
-	systemctl enable --user startpage.service
-	systemctl start --user startpage.service
-	systemctl restart --user startpage.service
+	xdg-open public/index.html
 
 clean:
-	rm -rf node_modules
-	rm -rf ~/.cache/startpage
-
-static:
-	xdg-open public/index.html
+	rm -rf build
