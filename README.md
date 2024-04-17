@@ -16,7 +16,7 @@ signed extensions.
 ### Generate Extension
 
 ```sh
-make build
+make
 ```
 
 ### Install Extension

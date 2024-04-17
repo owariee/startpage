@@ -53,6 +53,10 @@ const submitEvent = (event) => {
       searchEngine = `https://duckduckgo.com/?sites=wikipedia.org&`;
       break;
     case 'wikipedia-quick':
+      searchEngine = `https://duckduckgo.com/?sites=wikipedia.org&`;
+      firstResult = true;
+      break;
+    case 'wikipedia-bang':
       searchEngine = `https://duckduckgo.com/?`;
       textInputValue = "!w " + textInputValue;
       break;
@@ -60,6 +64,10 @@ const submitEvent = (event) => {
       searchEngine = `https://duckduckgo.com/?sites=cppreference.com&`;
       break;
     case 'cppreference-quick':
+      searchEngine = `https://duckduckgo.com/?sites=cppreference.com&`;
+      firstResult = true;
+      break;
+    case 'cppreference-bang':
       searchEngine = `https://duckduckgo.com/?`;
       textInputValue = "!cpp " + textInputValue;
       break;
@@ -68,8 +76,13 @@ const submitEvent = (event) => {
       break;
   }
 
+  let firstResultString = "";
+  if (firstResult) {
+    firstResultString = "\\";
+  }
+
   // Construct the DuckDuckGo search URL
-  const searchUrl = `${searchEngine}q=${encodeURIComponent(textInputValue)}`;
+  const searchUrl = `${searchEngine}q=${firstResultString}${encodeURIComponent(textInputValue)}`;
 
   // Redirect the user to the DuckDuckGo search results page
   window.location.href = searchUrl;
